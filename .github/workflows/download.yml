@@ -24,3 +24,23 @@ jobs:
           r-version: '4.0.4' # The R version to load (if necessary) and use.
       # Run Script
       - run: Rscript -e 'print("Hello World")'
+
+      - name: Installing packages
+        run: |
+          Rscript -e "install.packages('dplyr', repos = 'https://packagemanager.rstudio.com/cran/__linux__/focal/latest')"
+          Rscript -e "install.packages('readr', repos = 'https://packagemanager.rstudio.com/cran/__linux__/focal/latest')"
+
+
+      - name: Run R Script
+        run: |
+          Rscript download.R
+
+
+
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git pull origin main
+          git add data/tests_today.csv
+          git commit -m "update tests_today.csv" || echo "Nothing to update"
