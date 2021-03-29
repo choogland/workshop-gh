@@ -20,10 +20,6 @@ jobs:
         - name: Checkout repo
             uses: actions/checkout@v2
 
-        # Install R
-        - name: Install-R
-            uses: r-lib/actions/setup-r@v1
-            with:
-                r-version: '4.0.4' # The R version to load (if necessary) and use.
-        # Run Script
-        - run: Rscript -e 'print("Hello World")'
+        # Run cmde
+        - run: echo Hello, world!
+
