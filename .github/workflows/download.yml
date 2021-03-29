@@ -5,6 +5,8 @@ name: test
 # Controls when the action will run. 
 on:
   push
+  schedule: 
+  - cron: '* 8 * * *' 
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -43,7 +45,7 @@ jobs:
           git config --local user.name "GitHub Action"
           git pull origin main
           git add data/tests_today.csv
-          git commit -m "update tests_today.csv" || echo "Nothing to update"
+          git commit -m "tests_today.csv daily update" || echo "Nothing to update"
           
       - name: Push changes
         uses: ad-m/github-push-action@master
