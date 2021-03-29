@@ -16,13 +16,14 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-        # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-        - uses: actions/checkout@v2
+        # Checks out a copy of your repository on the ubuntu-latest machine
+        - name: Checkout repo
+            uses: actions/checkout@v2
 
         # Install R
         - name: Install-R
             uses: r-lib/actions/setup-r@v1
             with:
-            r-version: '4.0.4' # The R version to load (if necessary) and use.
+                r-version: '4.0.4' # The R version to load (if necessary) and use.
         # Run Script
         - run: Rscript -e 'print("Hello World")'
