@@ -21,10 +21,10 @@ jobs:
             uses: actions/checkout@v2
 
         # Run cmde
-        - run: |
+        - name: Run a multi-line script
+          run: |
             echo Hello, world!
             today=$(date +"%Y-%m-%d")
             echo ${today}
             cp -p data/tests_today.csv data/tests_${today}.csv
         
-
