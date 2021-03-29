@@ -44,3 +44,9 @@ jobs:
           git pull origin main
           git add data/tests_today.csv
           git commit -m "update tests_today.csv" || echo "Nothing to update"
+          
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}          
