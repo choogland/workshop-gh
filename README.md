@@ -2,7 +2,7 @@
 
 My great personal website (edited locally)
 
-Some changes
+Branch with changes in R script, and updated README.
 
 Creating new branch
 
